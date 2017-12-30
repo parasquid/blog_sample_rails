@@ -10,11 +10,21 @@
   matz = ->{ Faker::Matz.unique.quote }
   one_piece = ->{ Faker::OnePiece.unique.quote }
   star_wars = ->{ Faker::StarWars.unique.quote }
+  text = [matz, one_piece, star_wars].sample.call
 
-  article = Article.create(title: Faker::Lorem.unique.sentence, text: [matz, one_piece, star_wars].sample.call)
+  article = Article.create(
+    title: Faker::Lorem.unique.sentence,
+    text: text,
+    image_url: Faker::Avatar.image(text, "640x480", "jpg", "any", "any")
+  )
   puts article.inspect
   rand(5..20).times do
-    comment = article.comments.create(commenter: Faker::Witcher.character, body: Faker::Hacker.say_something_smart)
+    commenter = Faker::Witcher.character
+    comment = article.comments.create(
+      commenter: commenter,
+      body: Faker::Hacker.say_something_smart,
+      avatar_url: "https://flathash.com/#{commenter}"
+    )
     puts comment.inspect
   end
 end
