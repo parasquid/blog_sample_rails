@@ -1,0 +1,12 @@
+// Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "bootstrap";
+
+body {
+  padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}

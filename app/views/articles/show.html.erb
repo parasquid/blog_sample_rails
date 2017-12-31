@@ -1,22 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<%= image_tag @article.image_url, size: "640x480" %>
+<h1 class="mt-4"><%= @article.title %></h1>
 
+<hr>
+
+<!-- Date/Time -->
 <p>
-  <strong>Title:</strong>
-  <%= @article.title %>
+  Posted on <%= @article.created_at.to_s(:rfc822) %>
 </p>
 
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
+<hr>
 
-<h2>Comments</h2>
-<%= render @article.comments %>
+<!-- Preview Image -->
+<%= image_tag @article.image_url, class: "img-fluid rounded", style: "width: 100%" %>
 
-<h2>Add a comment:</h2>
+<hr>
+
+<!-- Post Content -->
+<%= simple_format @article.text %>
+
+<hr>
+
+<!-- Comments Form -->
 <%= render 'comments/form' %>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+
+<!-- Single Comment -->
+<%= render @article.comments.latest %>

@@ -1,0 +1,18 @@
+<div class="card my-4">
+  <h5 class="card-header">Latest Comments</h5>
+  <div class="card-body mt-0 pt-1">
+    <ul class="list-group list-group-flush">
+      <% Comment.latest.each do |comment| %>
+        <li class="list-group-item">
+          <div class="media">
+            <%= image_tag comment.avatar_url, height: 64, class: "align-self-start mr-3 rounded-circle" %>
+            <div class="media-body">
+              <h5 class="mt-0"><%= comment.commenter %></h5>
+              <%= comment.body %>
+            </div><!-- /.media-body -->
+          </div><!-- /.media -->
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

@@ -4,11 +4,24 @@
     <title>Blog</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application' %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= render "layouts/nav" %>
+    <main class="container" role="main">
+      <div class="row">
+        <div class="col-md-8 my-4">
+          <%= yield %>
+        </div>
+
+        <div class="col-md-4">
+          <%= render "layouts/sidebar" %>
+        </div>
+      </div><!-- /.row -->
+
+    </main><!-- /.container -->
+
+    <%= render "layouts/footer" %>
   </body>
 </html>

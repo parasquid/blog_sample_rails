@@ -2,6 +2,10 @@ class CommentsController < ApplicationController
   def create
     @article = Article.find(params[:article_id])
     @comment = @article.comments.create(comment_params)
+
+    @comment.avatar_url = "https://flathash.com/#{@comment.commenter}"
+    @comment.save
+
     redirect_to article_path(@article)
   end
 
