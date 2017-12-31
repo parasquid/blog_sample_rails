@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'vue/hello'
+
   resources :articles do
     resources :comments do
     end

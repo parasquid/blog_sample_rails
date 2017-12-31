@@ -59,3 +59,6 @@ gem 'jquery-rails'
 
 # pagination
 gem 'kaminari'
+
+# client-side js app
+gem 'webpacker', '~> 3.0'

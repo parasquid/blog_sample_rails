@@ -24,3 +24,8 @@ Things you may want to cover:
 * ...
 
 Theme courtesy of https://startbootstrap.com
+
+Rails webpacker: https://github.com/rails/webpacker
+* requires node > 6 (we install 9)
+* bundle exec rails webpacker
+* bundle exec rails webpacker:install:vue
