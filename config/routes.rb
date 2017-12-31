@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get "comments/latest", format: :json
+
   get 'static/about'
   get 'static/services'
   get 'static/contact'

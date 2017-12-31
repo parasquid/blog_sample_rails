@@ -4,8 +4,7 @@ import App from "./App";
 Vue.config.debug = true;
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.body.appendChild(document.createElement("latest-comments"))
   const app = new Vue({
     render: h => h(App)
-  }).$mount("latest-comments");
+  }).$mount("div#latest-comments");
 });

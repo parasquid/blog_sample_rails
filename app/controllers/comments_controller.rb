@@ -16,6 +16,10 @@ class CommentsController < ApplicationController
     redirect_to article_path(@article)
   end
 
+  def latest
+    @comments = Comment.latest
+  end
+
   private
     def comment_params
       params.require(:comment).permit(:commenter, :body)
