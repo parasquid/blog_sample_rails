@@ -1,0 +1,13 @@
+version: '3.5'
+services:
+  web:
+    build: .
+    command: bash -c "bundle check || bundle install && bin/rails server --port 3000 --binding 0.0.0.0"
+    ports:
+      - "3000:3000"
+    volumes:
+      - bundle_cache:/bundle
+      - .:/myapp
+
+volumes:
+  bundle_cache:
