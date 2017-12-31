@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'vue/hello'
+  get 'vue/latest_comments'
 
   resources :articles do
     resources :comments do

@@ -3,4 +3,7 @@ class VueController < ApplicationController
 
   def hello
   end
+
+  def latest_comments
+  end
 end
