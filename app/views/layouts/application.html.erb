@@ -7,6 +7,7 @@
     <%= javascript_include_tag "application" %>
     <%= javascript_pack_tag "apps/footer/index" %>
     <%= javascript_pack_tag "apps/about_page/index" %>
+    <%= javascript_pack_tag "apps/latest_comments/index" %>
   </head>
 
   <body>
@@ -18,12 +19,12 @@
         </div>
 
         <div class="col-md-4">
-          <%= render "layouts/sidebar" %>
+          <div id="latest-comments"></div>
         </div>
       </div><!-- /.row -->
 
     </main><!-- /.container -->
 
-    <%= render "layouts/footer" %>
+    <div id="footer"></div>
   </body>
 </html>
