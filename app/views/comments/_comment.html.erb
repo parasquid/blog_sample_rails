@@ -1,16 +1,7 @@
-<%= image_tag comment.avatar_url, size: "50x50" %>
-<p>
-  <strong>Commenter:</strong>
-  <%= comment.commenter %>
-</p>
-
-<p>
-  <strong>Comment:</strong>
-  <%= comment.body %>
-</p>
-
-<p>
-  <%= link_to 'Destroy Comment', [comment.article, comment],
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-</p>
+<div class="media mb-4">
+  <%= image_tag comment.avatar_url, class: "d-flex mr-3 rounded-circle", size: "50x50" if comment.avatar_url %>
+  <div class="media-body">
+    <h5 class="mt-0"><%= comment.commenter %></h5>
+    <%= comment.body %>
+  </div>
+</div>

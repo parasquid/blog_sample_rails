@@ -1,0 +1,11 @@
+<div class="card mb-4">
+  <%= image_tag article.image_url, size: "640x480", class: "card-img-top" %>
+  <div class="card-body">
+    <h2 class="card-title"><%= article.title.split(".").first %>.</h2>
+    <p class="card-text"><%= simple_format(truncate article.text, length: 240, separator: " ") %></p>
+    <%= link_to 'Read More &rarr;'.html_safe, article, class: "btn btn-primary" %>
+  </div>
+  <div class="card-footer text-muted text-right">
+    Posted on <%= article.created_at.to_s(:rfc822)  %>
+  </div>
+</div>

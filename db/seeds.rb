@@ -10,12 +10,12 @@
   matz = ->{ Faker::Matz.unique.quote }
   one_piece = ->{ Faker::OnePiece.unique.quote }
   star_wars = ->{ Faker::StarWars.unique.quote }
-  text = [matz, one_piece, star_wars].sample.call
+  title = [matz, one_piece, star_wars].sample.call
 
   article = Article.create(
-    title: Faker::Lorem.unique.sentence,
-    text: text,
-    image_url: Faker::Avatar.image(text, "640x480", "jpg", "any", "any")
+    title: title,
+    text: Faker::Lorem.paragraphs(rand(3..6), true).join("\n\n"),
+    image_url: Faker::Avatar.image(title.hash, "640x480", "jpg", "any", "any")
   )
   puts article.inspect
   rand(5..20).times do
