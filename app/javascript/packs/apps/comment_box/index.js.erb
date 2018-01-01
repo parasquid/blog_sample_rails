@@ -1,0 +1,17 @@
+import Vue from "vue/dist/vue.esm";
+import App from "./App";
+
+Vue.config.debug = true;
+
+document.addEventListener("DOMContentLoaded", () => {
+  const articleId = document.getElementById("article").dataset.articleId;
+  const csrfToken = document.querySelector(`meta[name="csrf-token"]`).getAttribute("content")
+  const app = new Vue({
+    render: h => h(App, {
+      props: {
+        articleId: articleId,
+        csrfToken: csrfToken
+      }
+    })
+  }).$mount("comment-box");
+});

@@ -6,4 +6,7 @@ class VueController < ApplicationController
 
   def latest_comments
   end
+
+  def comment_box
+  end
 end
