@@ -1,29 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<h1 class="mt-4"><%= @article.title %></h1>
+<div id="article" data-article-id=<%= @article.id %>>
+  <h1 class="mt-4"><%= @article.title %></h1>
 
-<hr>
+  <hr>
 
-<!-- Date/Time -->
-<p>
-  Posted on <%= @article.created_at.to_s(:rfc822) %>
-</p>
+  <!-- Date/Time -->
+  <p>
+    Posted on <%= @article.created_at.to_s(:rfc822) %>
+  </p>
 
-<hr>
+  <hr>
 
-<!-- Preview Image -->
-<%= image_tag @article.image_url, class: "img-fluid rounded", style: "width: 100%" %>
+  <!-- Preview Image -->
+  <%= image_tag @article.image_url, class: "img-fluid rounded", style: "width: 100%" %>
 
-<hr>
+  <hr>
 
-<!-- Post Content -->
-<%= simple_format @article.text %>
+  <!-- Post Content -->
+  <%= simple_format @article.text %>
 
-<hr>
+  <hr>
 
-<!-- Comments Form -->
-<%= render 'comments/form' %>
+  <!-- Comments Form -->
+  <%= render 'comments/form' %>
 
 
-<!-- Single Comment -->
-<%= render @article.comments.latest %>
+  <!-- Single Comment -->
+  <article-comments></article-comments>
+</div>

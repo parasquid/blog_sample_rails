@@ -1,7 +1,9 @@
-<div class="media mb-4">
-  <%= image_tag comment.avatar_url, class: "d-flex mr-3 rounded-circle", size: "50x50" if comment.avatar_url %>
-  <div class="media-body">
-    <h5 class="mt-0"><%= comment.commenter %></h5>
-    <%= comment.body %>
+<li class="list-group-item border-0">
+  <div class="media">
+    <%= image_tag comment.avatar_url, class: "d-flex mr-3 rounded-circle", size: "50x50" if comment.avatar_url %>
+    <div class="media-body">
+      <h5><%= comment.commenter %></h5>
+      <%= comment.body %>
+    </div>
   </div>
-</div>
+</li>

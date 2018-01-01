@@ -1,18 +1,13 @@
 <template>
-<div class="card my-4">
-  <h5 class="card-header">Latest Comments</h5>
-  <div class="card-body mt-0 pt-1">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item" v-for="comment in comments" :key="comment.id">
-        <comment-card
-          :avatarUrl="comment.avatar_url"
-          :commenter="comment.commenter"
-          :body="comment.body"
-        />
-      </li>
-    </ul>
-  </div>
-</div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item border-0" v-for="comment in comments" :key="comment.id">
+      <comment-card
+        :avatarUrl="comment.avatar_url"
+        :commenter="comment.commenter"
+        :body="comment.body"
+      />
+    </li>
+  </ul>
 </template>
 
 <script>
@@ -20,6 +15,9 @@ import axios from "axios";
 import CommentCard from "../components/CommentCard";
 
 export default {
+  props: {
+      articleId: String
+  },
   data() {
     return {
       comments: null
@@ -30,7 +28,7 @@ export default {
   },
   methods: {
     getLatestComments() {
-      return axios.get("/comments/latest.json");
+      return axios.get(`/articles/${this.articleId}/comments.json`);
     }
   },
   created() {
