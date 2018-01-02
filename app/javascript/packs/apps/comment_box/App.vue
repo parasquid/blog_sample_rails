@@ -47,6 +47,8 @@ export default {
         headers: {
           "X-CSRF-Token": this.csrfToken
         }
+      }).then(() => {
+        window.location.reload(true);
       })
     }
   }
